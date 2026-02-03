@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Send, Copy, Check, Mail, Sparkles, MessageSquare, User, RefreshCw, Wand2, ArrowRight, Maximize2, Minimize2 } from 'lucide-react';
+import { useState } from 'react';
+import { Copy, Check, Mail, Sparkles, MessageSquare, User, RefreshCw, Wand2, Maximize2, Minimize2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { t, currentLocale } from '../translations';
 import { generateEmail } from '../services/ai';
@@ -14,13 +14,6 @@ export default function EmailWriter() {
   const [copied, setCopied] = useState(false);
   const [showContext, setShowContext] = useState(false);
 
-  // Auto-resize textarea
-  const thoughtsRef = (node: HTMLTextAreaElement | null) => {
-    if (node) {
-      node.style.height = 'auto';
-      node.style.height = node.scrollHeight + 'px';
-    }
-  };
 
   const tones = [
     { value: 'professional', label: t('professionalTone'), description: t('professionalDescription'), color: 'bg-blue-50 border-blue-200 text-blue-700' },
